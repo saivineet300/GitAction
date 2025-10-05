@@ -1,22 +1,17 @@
-name: Main Workflow
+name: Email Action Test
 
 on:
   push:
-    branches: [ main, copilot/** ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: 21f1004227@ds.study.iitm.ac.in
-        run: echo "Hello, world!"
-      
-      - name: Complete
-        run: echo "Workflow completed successfully"
+        run: echo "Hello, world! This action step includes my email."

@@ -1,0 +1,27 @@
+name: Cache CI Speedup
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 🧱 Cache dependencies
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip        # You can change this to node_modules, .m2, etc.
+          key: cache-56d915c
+
+      # 👇 Required step name
+      - name: prime-cache-56d915c
+        run: echo "Cache hit: ${{ steps.cache.outputs.cache-hit }}"

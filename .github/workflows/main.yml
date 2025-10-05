@@ -1,0 +1,22 @@
+name: Main Workflow
+
+on:
+  push:
+    branches: [ main, copilot/** ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: 21f1004227@ds.study.iitm.ac.in
+        run: echo "Hello, world!"
+      
+      - name: Complete
+        run: echo "Workflow completed successfully"

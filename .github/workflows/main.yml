@@ -1,0 +1,21 @@
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - main
+      - '**'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 21f1004227@ds.study.iitm.ac.in
+        run: echo "Hello, world!"
+      
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Run additional step
+        run: echo "Action completed successfully"
